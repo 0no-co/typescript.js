@@ -4,13 +4,19 @@
     "./node_modules/ts-src/src"
   ],
   "exclude": [
-    "./node_modules/ts-src/src/typescript/typescript.ts",
-    "./node_modules/ts-src/src/tsserverlibrary/**/*",
-    "./node_modules/ts-src/src/tsserver/**/*",
-    "./node_modules/ts-src/src/typingsInstaller/**/*",
     "./node_modules/ts-src/src/typingsInstallerCore/**/*",
+    "./node_modules/ts-src/src/typescript/typescript.ts",
+    "./node_modules/ts-src/src/executeCommandLine/**/*",
+    "./node_modules/ts-src/src/typingsInstaller/**/*",
+    "./node_modules/ts-src/src/deprecatedCompat/**/*",
+    "./node_modules/ts-src/src/tsserverlibrary/**/*",
+    "./node_modules/ts-src/src/cancellationToken/*",
     "./node_modules/ts-src/src/testRunner/**/*",
+    "./node_modules/ts-src/src/tsserver/**/*",
+    "./node_modules/ts-src/src/services/**/*",
+    "./node_modules/ts-src/src/watchGuard/*",
     "./node_modules/ts-src/src/server/**/*",
+    "./node_modules/ts-src/src/tsc/**/*",
     "./node_modules/ts-src/src/lib/**/*"
   ],
   "compilerOptions": {

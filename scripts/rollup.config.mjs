@@ -24,7 +24,9 @@ const jsPlugins = [
           if (importer) {
             const target = path.join(path.dirname(importer), source);
             switch (true) {
+              case target.endsWith('cancellationToken/cancellationToken'):
               case target.endsWith('executeCommandLine/executeCommandLine'):
+              case target.endsWith('watchGuard/watchGuard'):
               case target.endsWith('executeCommandLine/_namespaces/ts'):
               case target.endsWith('deprecatedCompat/_namespaces/ts'):
                 return path.resolve(__dirname, '../src/noop_module.mjs');
