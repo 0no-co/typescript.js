@@ -27,6 +27,7 @@
     "target": "es2019",
     "module": "es2020",
     "declaration": true,
+    "preserveConstEnums": true,
     "noEmit": false
   }
 }
