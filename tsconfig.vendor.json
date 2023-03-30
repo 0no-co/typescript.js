@@ -1,0 +1,26 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": [
+    "./node_modules/ts-src/src"
+  ],
+  "exclude": [
+    "./node_modules/ts-src/src/typescript/typescript.ts",
+    "./node_modules/ts-src/src/tsserverlibrary/**/*",
+    "./node_modules/ts-src/src/tsserver/**/*",
+    "./node_modules/ts-src/src/typingsInstaller/**/*",
+    "./node_modules/ts-src/src/typingsInstallerCore/**/*",
+    "./node_modules/ts-src/src/testRunner/**/*",
+    "./node_modules/ts-src/src/server/**/*",
+    "./node_modules/ts-src/src/lib/**/*"
+  ],
+  "compilerOptions": {
+    "rootDir": "./node_modules/ts-src/src",
+    "outDir": "vendor",
+    "lib": ["es2018"],
+    "types": ["node"],
+    "target": "es2019",
+    "module": "es2020",
+    "declaration": true,
+    "noEmit": false
+  }
+}

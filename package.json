@@ -1,0 +1,56 @@
+{
+  "name": "@0no-co/typescript.js",
+  "description": "A minimal build of the TypeScript compiler for web envs",
+  "version": "5.0.2-1",
+  "author": "0no.co <hi@0no.co>",
+  "source": "./src/index.ts",
+  "main": "./dist/typescript",
+  "module": "./dist/typescript.mjs",
+  "types": "./dist/typescript.d.ts",
+  "sideEffects": false,
+  "files": [
+    "LICENSE",
+    "README.md",
+    "dist/"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/typescript.mjs",
+      "require": "./dist/typescript.js",
+      "types": "./dist/typescript.d.ts",
+      "source": "./src/index.ts"
+    },
+    "./package.json": "./package.json"
+  },
+  "public": true,
+  "scripts": {
+    "build:vendor": "node scripts/buildVendorFiles.mjs",
+    "build:lib": "rollup -c scripts/rollup.config.mjs",
+    "build": "run-s build:vendor build:lib",
+    "clean": "rimraf vendor dist node_modules/.cache",
+    "prepublishOnly": "run-s clean build"
+  },
+  "repository": "https://github.com/0no-co/typescript.js",
+  "bugs": {
+    "url": "https://github.com/0no-co/typescript.js/issues"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-alias": "^4.0.3",
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-sucrase": "^5.0.1",
+    "@rollup/plugin-terser": "^0.4.0",
+    "execa": "^7.1.1",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^4.4.1",
+    "rollup": "^3.20.2",
+    "rollup-plugin-dts": "^5.3.0",
+    "terser": "^5.16.8",
+    "ts-src": "https://github.com/microsoft/TypeScript/archive/refs/tags/v5.0.2.tar.gz",
+    "typescript": "^5.0.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
