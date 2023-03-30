@@ -6,28 +6,36 @@ import commonjs from '@rollup/plugin-commonjs';
 import sucrase from '@rollup/plugin-sucrase';
 import terser from '@rollup/plugin-terser';
 import dts from 'rollup-plugin-dts';
-import alias from '@rollup/plugin-alias';
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
-const replacement = path.resolve(__dirname, '../src/noop_module.ts');
 
 const jsPlugins = [
   {
     resolveId(source, importer) {
-      if (importer) {
-        const target = path.join(path.dirname(importer), source);
-        switch (true) {
-          case target.endsWith('executeCommandLine/executeCommandLine'):
-          case target.endsWith('executeCommandLine/_namespaces/ts'):
-          case target.endsWith('deprecatedCompat/_namespaces/ts'):
-            return path.resolve(__dirname, '../src/noop_module.mjs');
-          case target.endsWith('compiler/sys'):
-            return path.resolve(__dirname, '../src/compiler_sys.mjs');
-          default:
-            return null;
-        }
+      switch (source) {
+        case '@microsoft/typescript-etw':
+        case 'perf_hooks':
+        case 'os':
+        case 'fs':
+        case 'path':
+        case 'buffer':
+          return path.resolve(__dirname, '../src/noop_module.mjs');
+        default:
+          if (importer) {
+            const target = path.join(path.dirname(importer), source);
+            switch (true) {
+              case target.endsWith('executeCommandLine/executeCommandLine'):
+              case target.endsWith('executeCommandLine/_namespaces/ts'):
+              case target.endsWith('deprecatedCompat/_namespaces/ts'):
+                return path.resolve(__dirname, '../src/noop_module.mjs');
+              case target.endsWith('compiler/sys'):
+                return path.resolve(__dirname, '../src/compiler_sys.mjs');
+              default:
+                return null;
+            }
+          }
+          return null;
       }
-      return null;
     }
   },
 
@@ -42,18 +50,6 @@ const jsPlugins = [
     ignoreGlobal: true,
     include: /\/node_modules\//,
     extensions: ['.mjs', '.js'],
-  }),
-
-  alias({
-    entries: [
-      { find: 'typescript', replacement: './vendor/typescript/_namespaces/ts.js' },
-      { find: '@microsoft/typescript-etw', replacement },
-      { find: 'perf_hooks', replacement },
-      { find: 'os', replacement },
-      { find: 'fs', replacement },
-      { find: 'path', replacement },
-      { find: 'buffer', replacement },
-    ]
   }),
 
   sucrase({
