@@ -9,19 +9,23 @@ export function generateDjb2Hash(data) {
     return acc.toString();
 }
 
-export var FileWatcherEventKind;
-(function (FileWatcherEventKind) {
-    FileWatcherEventKind[FileWatcherEventKind["Created"] = 0] = "Created";
-    FileWatcherEventKind[FileWatcherEventKind["Changed"] = 1] = "Changed";
-    FileWatcherEventKind[FileWatcherEventKind["Deleted"] = 2] = "Deleted";
-})(FileWatcherEventKind || (FileWatcherEventKind = {}));
+export const FileWatcherEventKind = {
+  '0': 'Created',
+  '1': 'Changed',
+  '2': 'Deleted',
+  Created: 0,
+  Changed: 1,
+  Deleted: 2
+};
 
-export var PollingInterval;
-(function (PollingInterval) {
-    PollingInterval[PollingInterval["High"] = 2000] = "High";
-    PollingInterval[PollingInterval["Medium"] = 500] = "Medium";
-    PollingInterval[PollingInterval["Low"] = 250] = "Low";
-})(PollingInterval || (PollingInterval = {}));
+export const PollingInterval = {
+  '250': 'Low',
+  '500': 'Medium',
+  '2000': 'High',
+  High: 2000,
+  Medium: 500,
+  Low: 250
+};
 
 export function setSysLog() {
   return;

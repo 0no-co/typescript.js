@@ -34,6 +34,12 @@ const jsPlugins = [
                 return path.resolve(__dirname, '../src/compiler_factory_emitHelpers.mjs');
               case target.endsWith('compiler/transformer'):
                 return path.resolve(__dirname, '../src/compiler_transformer.mjs');
+              case target.endsWith('compiler/builder'):
+                return path.resolve(__dirname, '../src/compiler_builder.mjs');
+              case target.endsWith('compiler/watch'):
+                return path.resolve(__dirname, '../src/compiler_watch.mjs');
+              case target.endsWith('compiler/watchUtilities'):
+                return path.resolve(__dirname, '../src/compiler_watchUtilities.mjs');
               case target.endsWith('compiler/sys'):
                 return path.resolve(__dirname, '../src/compiler_sys.mjs');
               case target.endsWith('compiler/_namespaces/ts'):
