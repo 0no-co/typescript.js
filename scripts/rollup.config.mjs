@@ -30,8 +30,14 @@ const jsPlugins = [
               case target.endsWith('executeCommandLine/_namespaces/ts'):
               case target.endsWith('deprecatedCompat/_namespaces/ts'):
                 return path.resolve(__dirname, '../src/noop_module.mjs');
+              case target.endsWith('compiler/factory/emitHelpers'):
+                return path.resolve(__dirname, '../src/compiler_factory_emitHelpers.mjs');
+              case target.endsWith('compiler/transformer'):
+                return path.resolve(__dirname, '../src/compiler_transformer.mjs');
               case target.endsWith('compiler/sys'):
                 return path.resolve(__dirname, '../src/compiler_sys.mjs');
+              case target.endsWith('compiler/_namespaces/ts'):
+                return path.resolve(__dirname, '../src/index.ts');
               default:
                 return null;
             }
@@ -117,7 +123,6 @@ const commonConfig = {
   input: {
     'typescript': './src/index.ts',
   },
-  onwarn: () => {},
   external: () => false,
   preserveSymlinks: true,
   treeshake: {
