@@ -1,11 +1,13 @@
+export * from "../src/missing.mjs";
+
 /* Manually adapted ../vendor/compiler/_namespaces/ts.js file */
 export * from "../vendor/compiler/corePublic";
 export * from "../vendor/compiler/core";
 export * from "../vendor/compiler/debug";
 export * from "../vendor/compiler/semver";
-export * from "../vendor/compiler/performanceCore";
-export * from "../vendor/compiler/perfLogger";
-export * from "../vendor/compiler/tracing";
+// export * from "../vendor/compiler/performanceCore";
+// export * from "../vendor/compiler/perfLogger";
+// export * from "../vendor/compiler/tracing";
 export * from "../vendor/compiler/types";
 export * from "../vendor/compiler/sys";
 export * from "../vendor/compiler/path";

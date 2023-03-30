@@ -4,6 +4,7 @@ import * as url from 'url';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import sucrase from '@rollup/plugin-sucrase';
+import strip from '@rollup/plugin-strip';
 import terser from '@rollup/plugin-terser';
 import dts from 'rollup-plugin-dts';
 
@@ -42,6 +43,8 @@ const jsPlugins = [
                 return path.resolve(__dirname, '../src/compiler_watchUtilities.mjs');
               case target.endsWith('compiler/sys'):
                 return path.resolve(__dirname, '../src/compiler_sys.mjs');
+              case target.endsWith('compiler/performance'):
+                return path.resolve(__dirname, '../src/missing.mjs');
               case target.endsWith('compiler/_namespaces/ts'):
                 return path.resolve(__dirname, '../src/index.ts');
               default:
@@ -68,6 +71,15 @@ const jsPlugins = [
 
   sucrase({
     transforms: ['typescript'],
+  }),
+
+  strip({
+    functions: [
+      'console.*',
+      'performance.*',
+      'ts.performance.*',
+      'perfLogger.*',
+    ]
   }),
 
   terser({
