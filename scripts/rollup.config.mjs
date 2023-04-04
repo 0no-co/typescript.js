@@ -44,7 +44,7 @@ const jsPlugins = [
               case target.endsWith('compiler/sys'):
                 return path.resolve(__dirname, '../src/compiler_sys.mjs');
               case target.endsWith('compiler/performance'):
-                return path.resolve(__dirname, '../src/missing.mjs');
+                return path.resolve(__dirname, '../src/compiler_performance.mjs');
               case target.endsWith('compiler/_namespaces/ts'):
                 return path.resolve(__dirname, '../src/index.ts');
               default:
@@ -76,7 +76,12 @@ const jsPlugins = [
   strip({
     functions: [
       'console.*',
-      'performance.*',
+      'performance.mark',
+      'performance.measure',
+      'performance.timeOrigin',
+      'performance.now',
+      'performance.clearMarks',
+      'performance.clearMeasures',
       'ts.performance.*',
       'perfLogger.*',
     ]
