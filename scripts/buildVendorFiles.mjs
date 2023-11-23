@@ -3,6 +3,7 @@ import * as url from 'url';
 import { execa } from 'execa';
 
 import { prepareGeneratedFiles } from './prepareGeneratedFiles.mjs';
+import { prepareLibraryFiles } from './prepareLibraryFiles.mjs';
 
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
@@ -25,3 +26,4 @@ async function buildVendorFiles() {
 
 await buildVendorFiles();
 await prepareGeneratedFiles();
+await prepareLibraryFiles();

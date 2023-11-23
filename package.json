@@ -11,7 +11,8 @@
   "files": [
     "LICENSE",
     "README.md",
-    "dist/"
+    "dist/",
+    "lib/"
   ],
   "exports": {
     ".": {
@@ -27,7 +28,7 @@
     "build:vendor": "node scripts/buildVendorFiles.mjs",
     "build:lib": "rollup -c scripts/rollup.config.mjs",
     "build": "run-s build:vendor build:lib",
-    "clean": "rimraf vendor dist node_modules/.cache",
+    "clean": "rimraf lib vendor dist node_modules/.cache",
     "prepublishOnly": "run-s clean build"
   },
   "repository": "https://github.com/0no-co/typescript.js",
