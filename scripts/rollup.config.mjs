@@ -172,6 +172,9 @@ const dtsConfig = {
     dts(),
   ],
   output: {
+    // TODO: Find out why `Node` isn't being imported for node factories/checks
+    banner: 'export type Node = Node$1;\n',
+
     minifyInternalExports: false,
     dir: './dist',
     entryFileNames: '[name].d.ts',
