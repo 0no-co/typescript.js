@@ -33,6 +33,7 @@ export * from "../vendor/compiler/checker";
 export * from "../vendor/compiler/visitorPublic";
 export * from "../vendor/compiler/sourcemap";
 export * from "../vendor/compiler/transformers/utilities";
+export * from "../vendor/compiler/transformers/namedEvaluation";
 // export * from "../vendor/compiler/transformers/destructuring";
 // export * from "../vendor/compiler/transformers/taggedTemplate";
 // export * from "../vendor/compiler/transformers/ts";

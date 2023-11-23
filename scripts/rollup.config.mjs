@@ -31,6 +31,8 @@ const jsPlugins = [
               case target.endsWith('executeCommandLine/_namespaces/ts'):
               case target.endsWith('deprecatedCompat/_namespaces/ts'):
                 return path.resolve(__dirname, '../src/noop_module.mjs');
+              case target.endsWith('compiler/transformers/namedEvaluation'):
+                return path.resolve(__dirname, '../src/compiler_transformers_namedEvaluation.mjs');
               case target.endsWith('compiler/factory/emitHelpers'):
                 return path.resolve(__dirname, '../src/compiler_factory_emitHelpers.mjs');
               case target.endsWith('compiler/transformer'):

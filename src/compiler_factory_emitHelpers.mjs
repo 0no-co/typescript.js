@@ -9,3 +9,7 @@ export function getAllUnscopedEmitHelpers() {
 export function compareEmitHelpers(x, y) {
   return x === y;
 }
+
+export function isCallToHelper(_firstSegment, _helperName) {
+  return false;
+}
